@@ -1,0 +1,22 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/daniiltserin/markpress",
+  "authors": [
+    "daniiltserin <daniilborowkow@yandex.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tinymce": "^4.5.6",
+    "ckeditor": "^4.6.2",
+    "jPlayer": "jplayer#^2.9.2"
+  }
+}
