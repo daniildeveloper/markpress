@@ -2,17 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 
 class RouteController extends Controller
 {
-    public function start($slug) {
-    	$elem = DB::table("routes")->where('slug', $slug)->get();
-    	if(count($elem) === 0) {
-    		PageController::error404();
-    	}
-    	dd($page);
+    public function start($slug)
+    {
+        $elem = DB::table("routes")->where('slug', $slug)->get()[0];
+        if (count($elem) === 0) {
+            PageController::error404();
+        }
+
+        $e = null;
+        switch ($elem->model) {
+            case 'Page':
+            		$e = new PageController();
+                break;
+
+            default:
+                $e = new PageController();
+                break;
+        }
+        $e->showPage($elem->id);
     }
 }

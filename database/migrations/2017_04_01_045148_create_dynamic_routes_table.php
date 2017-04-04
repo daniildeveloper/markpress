@@ -16,7 +16,7 @@ class CreateDynamicRoutesTable extends Migration
         Schema::create('routes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug')->uniquie();
-            $table->string('model')->uniquie();
+            $table->string('model');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateDynamicRoutesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dynamic_routes');
+        Schema::dropIfExists('routes');
     }
 }
