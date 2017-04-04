@@ -13,11 +13,11 @@ class CreateDynamicRoutesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dynamic_routes', function (Blueprint $table) {
+        Schema::create('routes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug')->uniquie();
             $table->string('model')->uniquie();
-            $table->timestaps();
+            $table->timestamps();
         });
     }
 

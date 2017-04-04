@@ -21,6 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get("{slug}", function ($slug) {
-	dd($slug);
-});
+Route::get("{slug}", "RouteController@start");
