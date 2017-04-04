@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDynamicRoutesTable extends Migration
+class CreateStringSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateDynamicRoutesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dynamic_routes', function (Blueprint $table) {
+        Schema::create('string_settings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug')->uniquie();
-            $table->string('model')->uniquie();
-            $table->timestaps();
+            $table->string('value');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateDynamicRoutesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dynamic_routes');
+        Schema::dropIfExists('string_settings');
     }
 }
