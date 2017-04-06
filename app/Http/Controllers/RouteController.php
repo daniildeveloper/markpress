@@ -16,13 +16,16 @@ class RouteController extends Controller
         $e = null;
         switch ($elem->model) {
             case 'Page':
-            		$e = new PageController();
+                $e = new PageController();
+                break;
+            case 'Post':
+                $e = new Content\BlogPostController();
                 break;
 
             default:
                 $e = new PageController();
                 break;
         }
-        $e->showPage($elem->id);
+        $e->show($elem->id);
     }
 }
