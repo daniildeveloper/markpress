@@ -14,5 +14,11 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call(StringSettingsSeeder::class);
         $this->call(RouteSeeder::class);
+
+        // CMS
+        
+        // base settings seeder
+        $this->call(CMSStringSeeder::class);
+        // END CMS
     }
 }
