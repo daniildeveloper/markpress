@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersSeeder::class);
         $this->call(StringSettingsSeeder::class);
         $this->call(RouteSeeder::class);
+        $this->call(SiteDataSeeder::class);
 
         // CMS
         
