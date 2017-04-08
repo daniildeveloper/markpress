@@ -8,13 +8,18 @@ class RouteController extends Controller
 {
     public function start($slug)
     {
-        $elem = DB::table("routes")->where('slug', $slug)->get()[0];
-        if (count($elem) === 0) {
+        $elems = DB::table("routes")->where('slug', $slug)->get();
+ 
+
+        if (count($elems) === 0) {
             PageController::error404();
         }
 
+
+
         $e = null;
-        switch ($elem->model) {
+        $elem = $elems[0];
+        switch ($elems[0]->model) {
             case 'Page':
                 $e = new PageController();
                 break;

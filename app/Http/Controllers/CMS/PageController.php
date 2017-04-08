@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\CMS;
 
+use App\DynamicRoute as DRoute;
 use App\Http\Controllers\Controller;
 use App\Page;
 use Illuminate\Http\Request;
@@ -21,11 +22,11 @@ class PageController extends Controller
         ]);
     }
 
-        /**
+    /**
      * show pages in table.
      * @return [type] [description]
      */
-    public function show($id,Request $request)
+    public function show($id, Request $request)
     {
         return view("dashboard.cms.page.index", [
             "pages" => DB::table("pages")->where("id", $id)->paginate(30),
@@ -51,6 +52,13 @@ class PageController extends Controller
         $page->description  = $request["description"];
         $page->author_id    = Auth::user()->id;
         $page->save();
+
+        // create route
+        $route        = new DRoute();
+        $route->slug  = $request["title"];
+        $route->model = "Page";
+        $route->save();
+        
         return redirect()->route("page.show", ["id" => $page->id]);
     }
 }
