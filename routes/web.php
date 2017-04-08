@@ -14,7 +14,10 @@
 Route::get('/', "PageController@showIndexPage");
 Route::group(["prefix" => "markpress", "middleware" => "auth"], function () {
   Route::group(["prefix"=> "cms"], function() {
-    Route::get("/", "CMS\DashboardController@showDashboard");
+    Route::get("/", "CMS\DashboardController@showDashboard")->name("cms");
+
+    Route::resource('page', 'CMS\PageController');//pages dashboard
+
   });
 });
 Auth::routes();

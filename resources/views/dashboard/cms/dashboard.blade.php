@@ -12,18 +12,18 @@
             Пользователей всего
         </span>
         <div class="count">
-            {{$usersCount}}
+            {{-- {{$usersCount}} --}}
         </div>
         <span class="count_bottom">
-            @if($usersLastDayProcent > 0)
+            {{-- @if($usersLastDayProcent > 0) --}}
             <i class="green">
-                +{{$usersLastDayProcent}}%
+                {{-- +{{$usersLastDayProcent}}% --}}
             </i>
-            @else
+            {{-- @else --}}
             <i class="red">
                 0%
             </i>
-            @endif
+            {{-- @endif --}}
             за сегодня
         </span>
     </div>
@@ -34,11 +34,11 @@
             Прогнозов всего
         </span>
         <div class="count">
-            {{$predictionsCount}}
+            {{-- {{$predictionsCount}} --}}
         </div>
         <span class="count_bottom">
             <i class="green">
-                {{$predictionsSuccessfullCount}}
+                {{-- {{$predictionsSuccessfullCount}} --}}
             </i>
             Успешных
         </span>
@@ -52,13 +52,13 @@
             Прогнозы от админа
         </span>
         <div class="count green">
-            {{$adminsPredictionsCount}}
+            {{-- {{$adminsPredictionsCount}} --}}
         </div>
         <span class="count_bottom">
             <i class="green">
                 <i class="fa fa-sort-asc">
                 </i>
-                {{$adminsPredictionsSuccessfull}}
+                {{-- {{$adminsPredictionsSuccessfull}} --}}
             </i>
             Успешных
         </span>
