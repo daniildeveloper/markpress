@@ -19,6 +19,10 @@ class ThemeViewFinder extends FileViewFinder
         $this->basePath = $path;
     }
 
+    /**
+     * sut active theme
+     * @param [type] $theme [description]
+     */
     public function setActiveTheme($theme)
     {
         $this->activeTheme = $theme;
