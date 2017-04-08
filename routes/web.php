@@ -11,9 +11,7 @@
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "PageController@showIndexPage");
 Route::group(["prefix" => "markpress", "middleware" => "auth"], function () {
   Route::group(["prefix"=> "cms"], function() {
     Route::get("/", "CMS\DashboardController@showDashboard");
