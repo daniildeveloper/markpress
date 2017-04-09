@@ -22,6 +22,8 @@ class CreatePagesTable extends Migration
             $table->integer("parent_id")->default(0);
             $table->integer("author_id");
             $table->text("description")->nullable();
+            $table->string("template")->default("page");
+            // $table->string("");
             $table->timestamps();
         });
     }

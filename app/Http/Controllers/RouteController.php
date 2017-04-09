@@ -6,32 +6,34 @@ use Illuminate\Support\Facades\DB;
 
 class RouteController extends Controller
 {
+    private $activeTheme = null;
+    public function __construct()
+    {
+        $this->activeTheme = active_theme();
+    }
     public function start($slug)
     {
-        $elems = DB::table("routes")->where('slug', $slug)->get();
- 
-
+        $element = null;
+        $elems   = DB::table("routes")->where('slug', $slug)->get();
         if (count($elems) === 0) {
-            PageController::error404();
+            dd(404);
+        } else {
+            $element = $elems[0];
+        }
+        $model = $element->model;
+
+        $forRenderQuery = DB::table($model)->where("slug", $slug)->get();
+        $forRender      = null;
+        if (count($forRenderQuery) === 0) {
+            dd(301);
+        } else {
+            $forRender = $forRenderQuery[0];
         }
 
+        $template = $forRender->template;
 
-
-        $e = null;
-        $elem = $elems[0];
-        switch ($elems[0]->model) {
-            case 'Page':
-                $e = new PageController();
-                \App::call('App\Http\Controllers\PageController@showIndexPage');
-                break;
-            case 'Post':
-                $e = new Content\BlogPostController();
-                break;
-
-            default:
-                $e = new PageController();
-                break;
-        }
-        $e->make($elem->id);
+        return view("themes.$this->activeTheme.$template", [
+            'element' => $forRender,
+        ]);
     }
 }

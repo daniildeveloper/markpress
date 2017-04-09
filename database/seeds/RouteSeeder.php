@@ -14,7 +14,7 @@ class RouteSeeder extends Seeder
     {
         $main = new R();
         $main->slug = "main";
-        $main->model = "Page" ;
+        $main->model = "pages" ;
         $main->save();
     }
 }
