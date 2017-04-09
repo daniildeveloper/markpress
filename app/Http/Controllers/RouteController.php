@@ -16,7 +16,7 @@ class RouteController extends Controller
         $element = null;
         $elems   = DB::table("routes")->where('slug', $slug)->get();
         if (count($elems) === 0) {
-            dd(404);
+            return view("themes.$this->activeTheme.404");
         } else {
             $element = $elems[0];
         }
@@ -25,7 +25,7 @@ class RouteController extends Controller
         $forRenderQuery = DB::table($model)->where("slug", $slug)->get();
         $forRender      = null;
         if (count($forRenderQuery) === 0) {
-            dd(301);
+            return view("themes.$this->activeTheme.404");
         } else {
             $forRender = $forRenderQuery[0];
         }
