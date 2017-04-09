@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SiteDataSeeder::class);
 
         // CMS
+        $this->call(EntitiesTableSeeder::class);
         
         // base settings seeder
         $this->call(CMSStringSeeder::class);

@@ -22,6 +22,7 @@ class RouteController extends Controller
         switch ($elems[0]->model) {
             case 'Page':
                 $e = new PageController();
+                \App::call('App\Http\Controllers\PageController@showIndexPage');
                 break;
             case 'Post':
                 $e = new Content\BlogPostController();
@@ -31,6 +32,6 @@ class RouteController extends Controller
                 $e = new PageController();
                 break;
         }
-        $e->show($elem->id);
+        $e->make($elem->id);
     }
 }

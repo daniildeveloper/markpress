@@ -6,30 +6,21 @@ use App\Page;
 
 class PageController extends Controller
 {
-    public $active = null;
 
-    public function __construct()
-    {
-        $this->active = active_theme();
-    }
     public function showIndexPage()
     {
         $active = active_theme();
         return view("themes.$active.index");
     }
 
-    /**
-     * show single page
-     * @param  [type] $id [description]
-     * @return [type]     [description]
-     */
-    public function show($id)
-    {
-        return view("themes.default.index");
+    public function make($id = 0) {
+        // dd("$id");
+        return redirect("/");
     }
 
     public static function error404()
     {
+        return redirect("/");
         dd(404);
     }
 }
