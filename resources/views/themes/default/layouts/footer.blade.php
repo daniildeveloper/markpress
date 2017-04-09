@@ -21,7 +21,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a target="_blank" href="https://github.com/daniiltserin">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -30,7 +30,7 @@
                         </li>
                     </ul>
                     {{-- TODO: correct website name --}}
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    <p class="copyright text-muted">Copyright &copy; MarkPress 2017</p>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@yield("page_title")</title>
+    <title>{{R::getSiteName()}} | @yield("title")</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{theme('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
